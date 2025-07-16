@@ -39,12 +39,12 @@ for(let i = 1; i<=10; i++){
 
 // 5. Calculate the factorial of a given number.
 // ?   6 --> 1 * 2 * 3 * 4 * 5 * 6
-/*
+/*!
 let num = 6;
 let fact = 1;
 for(let i = 1; i<=num; i++){
     fact *= i;
-    console.log(`factorial of ${i} is ${fact}`)
+    // console.log(`factorial of ${i} is ${fact}`)
 }
 console.log(`factorial of ${num} is ${fact}`)
 */
@@ -397,11 +397,9 @@ for(let i = 0; i<arr.length; i++){
       break;
     }
   }
-
   if(isduplicate === false){
     newarr.push(arr[i])
   }
-
 }
 console.log(newarr)
 */
@@ -492,6 +490,7 @@ if(ispalindrome){
 //    *
 */
 
+/*
 let n = 5;
 let pattern = "";
 
@@ -508,18 +507,256 @@ for(let row = 1; row<=n; row++){
 }
 console.log(pattern)
 
+*/
 
 
+// var a = "10";
+// var b = 10;
+// var c = b + a;
+
+//  console.log(c)
+
+// ! <<<<<<< QUESTIONS >>>>>>>
+
+// 1 Palindrome no.
+
+/*
+let num = 141;
+let numcpy = num;
+let rev = 0;
+
+while(numcpy > 0){
+  let digit = numcpy % 10;
+  rev = rev * 10 + digit
+  numcpy = parseInt(numcpy / 10)
+}
+
+// console.log(rev)
+if(num === rev){
+  console.log("Number is Palindrome")
+}else{
+  console.log("Not a Palindrome Number")
+}
+*/
+
+// String Palindrome
+/*
+let str = "madam"
+isPalindrome = true;
+
+for(let i=0; i<str.length/2; i++){
+  if(str[i] !== str[str.length - i -1] ){
+    isPalindrome = false;
+    break;
+  }
+}
+
+if(isPalindrome){
+  console.log("Palindrome String")
+}else{
+  console.log("Not a palindrome String")
+}
+*/
+
+// Finding Duplicates in an Array
+/*!
+let arr = [1, 2, 3, 2, 4, 1];
+let duplicates = [];
+
+for (let i = 0; i < arr.length; i++) {
+
+  for (let j = i + 1; j < arr.length; j++) {
+    if (arr[i] === arr[j]) {
+      // Check if not already in duplicates
+      let alreadyIn = false;
+
+      for (let k = 0; k < duplicates.length; k++) {
+        if (duplicates[k] === arr[i]) {
+          alreadyIn = true;
+          break;
+        }
+      }
+
+      if (!alreadyIn) {
+        duplicates.push(arr[i]);
+      }
+
+    }
+  }
+}
+
+console.log("Duplicates:", duplicates); 
+
+*/
 
 
+// Sum of Positive Numbers in Array 
+/*
+let arr = [1, -2, 2, 3, -4, 4, 5];
+let sum = 0;
+
+for(let i of arr){
+  if(i > 0){
+    sum += i
+  }
+}
+console.log(sum)
+*/
+
+// Merging Arrays (Without methods)
+/*
+let arr1 = [1, 2];
+let arr2 = [3, 4];
+let mergedArray = [];
+
+for(let i = 0; i<arr1.length; i++){
+  mergedArray[mergedArray.length] = arr1[i];
+}
+
+for(let i = 0; i<arr2.length; i++){
+  mergedArray[mergedArray.length] = arr2[i]
+}
+console.log(mergedArray)
+*/
+
+//  Average Salary Calculation
+/*
+let data = [
+  { empName: "Manav", salary: 50000 },
+  { empName: "Vamsi", salary: 45000 },
+  { empName: "Aman", salary: 60000 }
+];
+
+let totalSal = 0
+let count = 0;
+
+for (let i = 0; i < data.length; i++) {
+  totalSal += data[i].salary;
+  count++; 
+}
+console.log(count)
+console.log("Avg Sal. : ", totalSal/count)
+*/
+
+// String reversed:
+/*
+let str = "madam";
+let strCopy = str;
+let revStr = ""
+
+for (let i = 0; i < str.length; i++) {
+  revStr += str[str.length - i - 1];  
+}
+
+if(strCopy === revStr){
+  console.log("Palindrome String")
+}else{
+  console.log("Not Palindrome")
+}
+*/
+// (strCopy === revStr) ? console.log("Palindrome String") : console.log("Not Palindrome")
+
+// ~ Without inbuilt Functions
+/*
+let input = "I Love JavaScript ";
+let output = "";
+
+let word = "";
+
+for (let char of input) {
+  if (char == " ") {
+    output = word + " " + output;
+
+    word = "";
+  } else {
+    word += char;
+  }
+}
+console.log(output);
+*/
+
+// ? i/o ---> "Hello World";
+// ? o/p ---> { H : 1, e : 1, l : 3, o : 2, W : 1, r : 1 , d : 1 };
+// Hint: count of each character
+/*!
+let input = "Hello World";
+
+let output = {};
+
+for (let char of input) {
+  // console.log(char);
+
+  if (char == " ") {
+    continue;
+  }
+
+  if (output[char]) { // output[char] is also a valid logic
+    output[char] += 1;
+  } else {
+    output[char] = 1;
+  }
+}
+
+console.log(output);
+*/
+
+/*
+let input = "JavaScript JavaScript JavaScript I don't Like JavaScript, but JavaScript Loves me, I can't avoid ";
+
+let output = {};
+
+let word = "";
+
+for (let char of input) {
+  // console.log(char);
+
+  if (char === " ") {
+    console.log(word);
+
+    // count logic
+    if (output[word]) {
+      output[word] += 1;
+    } else {
+      output[word] = 1;
+    }
+
+    word = "";
+  } else {
+    word += char;
+  }
+}
+// console.log(word);
+
+console.log(output);
+*/
 
 
+const arr1 = [1,3,5];
+const arr2 =[2,4,6];
 
+function mergeSortedArrays(arr1,arr2){
+  let output = []
 
+  for (let i of arr1) {
+    output[output.length] = i;
+  }
 
+  for (let i of arr2) {
+    output[output.length] = i;
+  }
+  // console.log(output)
+  output.sort((a,b)=> a-b)
+  
+  return output
+}
 
+console.log(mergeSortedArrays(arr1,arr2))
 
+// Sorting
+// let arr = [ 1, 3, 5, 2, 4, 6 ]
 
-
-
+// for (let i = 0; i < arr.length; i++) {
+  
+  
+// }
 

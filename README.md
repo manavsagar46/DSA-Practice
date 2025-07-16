@@ -8,7 +8,7 @@ This repository contains my solutions and notes for practicing **Data Structures
 - Arrays & Strings
 - Stacks & Queues
 - Linked Lists
-- Trees & Graphs
 - Recursion & Backtracking
 - Sorting & Searching
 - Dynamic Programming
+- Trees & Graphs

@@ -275,24 +275,25 @@ if (flag) {
 }
 */
 
-
 // check no. is prime or not.
 /*
 let n = 13;
 let isPrime = true;
 
-for(let i = 2; i < n; i++){
-  if(n % i == 0 ){
+for (let i = 2; i < n; i++) {
+  if (n % i == 0) {
     isPrime = false;
     break;
-    }
-    }
-    if(isPrime){
-      console.log("Number is Prime")
-      }else{
-        console.log("Number is not Prime")
-    }
-    */
+  }
+}
+
+if (isPrime) {
+  console.log("Number is Prime");
+} else {
+  console.log("Number is not Prime");
+}
+*/
+
 // 4. Print all prime numbers between 1 and 100
 // ? Output: 2, 3, 5, 7, 11, 13, ...
 /*
@@ -300,7 +301,7 @@ let numtill = 100;
 // let count = 0;
 let count = []
 
-for(let i = 0; i<=numtill; i++){
+for(let i = 2; i<=numtill; i++){
   let isPrime = true
   for(let j = 2; j < i; j++){
     if(i % j == 0){
@@ -315,6 +316,23 @@ for(let i = 0; i<=numtill; i++){
 console.log(count)
 console.log("Total Count is : ", count.length)
 */
+/*!
+for(let i = 2; i<=100; i++){
+  let isPrime = true
+  for(let j = 2; j < i; j++){
+    if(i % j == 0){
+      isPrime = false;
+      break;
+    }
+  
+  }
+  if(isPrime){
+    console.log(i);
+  }
+}
+// console.log(count)
+// console.log("Total Count is : ", count.length)
+*/
 
 // 5. Print elements of an array in reverse order
 // ? Output: 20 15 10 5
@@ -327,13 +345,14 @@ console.log("Total Count is : ", count.length)
 // console.log(revArray);
 
 // ~ Without Inbuilt
-/*
+/*!
 let arr = [5, 10, 15, 20];
 let newarr = [];
 
 for(let i=arr.length -1; i>=0; i--){
   // console.log(arr[i], i,  (arr.length - 1) - i)
   newarr[(arr.length - 1) - i] = arr[i]
+  // console.log(arr[i])
 }
 console.log("Array: ",arr);
 console.log("New Array: ", newarr);
@@ -460,7 +479,7 @@ if(ispalindrome){
 // console.log(sortedArr[sortedArr.length - 2])
 // console.log(arr)
 
-// ! Abhi karna baaki hai 
+// ! Abhi karna baaki hai
 // let arr = [10, 5, 8, 20];
 // let largest = arr[0];         // Assume the first element is the largest
 // let secondLargest = -Infinity;
@@ -479,7 +498,6 @@ if(ispalindrome){
 // } else {
 //   console.log("Second largest number is:", secondLargest);
 // }
-
 
 // 10. Pattern: Print diamond shape of stars
 /*!
@@ -508,7 +526,6 @@ for(let row = 1; row<=n; row++){
 console.log(pattern)
 
 */
-
 
 // var a = "10";
 // var b = 10;
@@ -589,8 +606,7 @@ console.log("Duplicates:", duplicates);
 
 */
 
-
-// Sum of Positive Numbers in Array 
+// Sum of Positive Numbers in Array
 /*
 let arr = [1, -2, 2, 3, -4, 4, 5];
 let sum = 0;
@@ -700,7 +716,7 @@ for (let char of input) {
 console.log(output);
 */
 
-/*
+/*`
 let input = "JavaScript JavaScript JavaScript I don't Like JavaScript, but JavaScript Loves me, I can't avoid ";
 
 let output = {};
@@ -730,17 +746,15 @@ for (let char of input) {
 console.log(output);
 */
 
-
+/*!
 const arr1 = [1,3,5];
 const arr2 =[2,4,6];
 
 function mergeSortedArrays(arr1,arr2){
   let output = []
-
   for (let i of arr1) {
     output[output.length] = i;
   }
-
   for (let i of arr2) {
     output[output.length] = i;
   }
@@ -751,12 +765,585 @@ function mergeSortedArrays(arr1,arr2){
 }
 
 console.log(mergeSortedArrays(arr1,arr2))
-
+*/
 // Sorting
 // let arr = [ 1, 3, 5, 2, 4, 6 ]
 
 // for (let i = 0; i < arr.length; i++) {
-  
-  
+
 // }
+
+// let num = 2001;
+// rev = 0;
+
+// while(num > 0){
+//   let digit = num % 10;
+//   rev = rev * 10 + digit;
+//   num = parseInt(num / 10);
+// }
+
+// console.log(rev);
+
+// Sum of all positive in an array:
+
+// let arr1 = [1,-4,12,0,-3,29,-150];
+// let sum = 0;
+
+// for(let i of arr1){
+//   if( i > 0 ){
+//     sum += i;
+//   }
+// }
+// console.log(sum);
+
+// Duplicates no. in an integer array.
+// ? output : console.log(findDuplicateEle([1,2,3,5,3,1,9],[1,2,4.5,53,12]))
+/*
+let arr1 = [1,2,3,5,3,1,9];
+let arr2 = [1,2,4.5,53,12];
+let duplicateArr = [];
+
+function findDuplicateEle(arr1,arr2){
+  
+  for (let i = 0; i < arr1.length; i++) {
+    for (let j = 0; j < arr2.length; j++) {
+      if(arr1[i] === arr2[j]){
+        let alreadyIn = false;
+        if(duplicateArr.includes(arr1[i])){
+          alreadyIn = true;
+          break;
+        }
+
+        if(!alreadyIn){
+          duplicateArr.push(arr1[i])
+        }
+      }
+    }
+    
+  }
+
+  return duplicateArr
+}
+
+console.log(findDuplicateEle(arr1,arr2));
+*/
+
+//
+/*
+let data = [
+  { name: "Manav", salary: 50000 , department: "IT"},
+  { name: "Vamsi", salary: 60000 , department: "HR" },
+  { name: "Aman", salary: 55000 , department: "IT"},
+  { name: "Aman", salary: 75000 , department: "HR"},
+  { name: "Aman", salary: 65000 , department: "IT"},
+  { name: "Aman", salary: 80000 , department: "HR"},
+  { name: "Aman", salary: 70000 , department: "IT"},
+];
+let output = {department: "XYZ", avgSalary: 0}
+let outputArr = []
+let totalSalHr = 0;
+let totalSalIt = 0;
+let countHr = 0;
+let countIt = 0;
+
+data.map((emp) => {
+  if(emp.department == "IT"){
+    totalSalIt += emp.salary;
+    countIt++;
+  }else{
+    totalSalHr+= emp.salary;
+    countHr++;
+  }
+})
+
+let avgSalhr = totalSalHr / countHr;
+console.log(avgSalhr);
+let avgSalIt = totalSalIt / countIt;
+
+if (avgSalhr > 65000) {
+  output.department = "HR";
+  output.avgSalary = avgSalhr;
+} else {
+  output.department = "IT";
+  output.avgSalary = avgSalIt;
+}
+
+outputArr.push(output)
+console.log(outputArr)
+*/
+/*
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+let data = [
+  { name: "Manav", salary: 50000 , department: "IT"},
+  { name: "Vamsi", salary: 60000 , department: "HR" },
+  { name: "Aman", salary: 55000 , department: "IT"},
+  { name: "Aman", salary: 75000 , department: "HR"},
+  { name: "Aman", salary: 65000 , department: "IT"},
+  { name: "Aman", salary: 80000 , department: "HR"},
+  { name: "Aman", salary: 70000 , department: "IT"},
+];
+
+let output = {department:"XYZ", avgSal : 0 }
+
+let HrArr = data.filter(emp => emp.department == "HR")
+let ItArr = data.filter(emp => emp.department == "IT")
+// console.log(arr)
+
+let avgSalHr = 0;
+let totalSalHr = 0;
+
+HrArr.map((emp) => {
+  totalSalHr += emp.salary
+  avgSalHr = totalSalHr / HrArr.length
+})
+
+let avgSalIt = 0;
+let totalSalIt = 0;
+
+ItArr.map((emp) => {
+  totalSalIt += emp.salary
+  avgSalIt = totalSalIt / HrArr.length
+})
+*/
+// let result = data.reduce((acc, curr) => {
+//   const dept = curr.department;
+//   if (!acc[dept]) {
+//     acc[dept] = { totalSalary: 0, count: 0 };
+//   }
+//   acc[dept].totalSalary += curr.salary;
+//   acc[dept].count += 1;
+//   return acc;
+// }, {});
+
+// console.log(result)
+
+// let nums = [10, 20, 30];
+
+// let total = nums.reduce((acc, curr) => {
+//   return acc + curr;
+// }, 0);
+
+// console.log(total); // Output: 60
+/*
+let data = [
+  { name: "Manav", salary: 50000 , department: "IT"},
+  { name: "Vamsi", salary: 60000 , department: "HR" },
+  { name: "Aman", salary: 55000 , department: "IT"},
+  { name: "Sonam", salary: 75000 , department: "HR"},
+  { name: "Sonu", salary: 65000 , department: "IT"},
+  { name: "Monu", salary: 80000 , department: "HR"},
+  { name: "Gautam", salary: 70000 , department: "IT"},
+];
+
+let totalSalHr = 0;
+let totalSalIt = 0;
+
+data.map(emp => {
+  if(emp.department == "HR"){
+    totalSalHr += emp.salary;
+  }else{
+    totalSalIt += emp.salary;
+  }
+})
+
+let avgSalHr = totalSalHr/(data.filter(emp => emp.department == "HR").length)
+
+let avgSalIt = totalSalHr/(data.filter(emp => emp.department == "IT").length)
+
+if (avgSalHr > 65000) {
+  console.log([{department: "HR", avgSal : avgSalHr}])
+}else{
+  console.log([{department: "IT", avgSal : avgSalIt}])
+}
+*/
+
+/*
+let data = [
+  { name: "Manav", salary: 50000, department: "IT" },
+  { name: "Vamsi", salary: 60000, department: "HR" },
+  { name: "Aman", salary: 55000, department: "IT" },
+  { name: "Sonam", salary: 75000, department: "HR" },
+  { name: "Sonu", salary: 65000, department: "IT" },
+  { name: "Monu", salary: 80000, department: "HR" },
+  { name: "Gautam", salary: 70000, department: "IT" },
+];
+
+let avgSalHr =
+  data
+    .filter((emp) => emp.department == "HR")
+    .reduce((acc, curr) => acc + curr.salary, 0) /
+  data.filter((emp) => emp.department === "HR").length;
+
+let avgSalIt =
+  data
+    .filter((emp) => emp.department == "IT")
+    .reduce((acc, curr) => acc + curr.salary, 0) /
+  data.filter((emp) => emp.department == "IT").length;
+
+if (avgSalHr > 65000) {
+  console.log([{ department: "HR", avgSal: avgSalHr }]);
+} else {
+  console.log([{ department: "IT", avgSal: avgSalIt }]);
+}
+*/
+/*
+let data = [
+  { name: "Manav", salary: 50000, department: "IT" },
+  { name: "Vamsi", salary: 60000, department: "HR" },
+  { name: "Aman", salary: 55000, department: "IT" },
+  { name: "Sonam", salary: 75000, department: "HR" },
+  { name: "Sonu", salary: 65000, department: "IT" },
+  { name: "Monu", salary: 80000, department: "HR" },
+  { name: "Gautam", salary: 70000, department: "IT" },
+];
+
+let EmpHr = data.filter(emp => emp.department == "HR");
+let EmpIt = data.filter(emp => emp.department == "IT");
+
+let avgSalHr = EmpHr.reduce((acc, curr) => acc + curr.salary, 0) /EmpHr.length;
+let avgSalIt = EmpIt.reduce((acc, curr) => acc + curr.salary, 0) /EmpIt.length;
+
+if (avgSalHr > 65000) {
+  console.log([{ department: "HR", avgSal: avgSalHr }]);
+} else {
+  console.log([{ department: "IT", avgSal: avgSalIt }]);
+}
+*/
+/*
+let data = [
+  { name: "Manav", salary: 50000, department: "IT" },
+  { name: "Vamsi", salary: 60000, department: "HR" },
+  { name: "Aman", salary: 55000, department: "IT" },
+  { name: "Sonam", salary: 75000, department: "HR" },
+  { name: "Sonu", salary: 65000, department: "IT" },
+  { name: "Monu", salary: 80000, department: "HR" },
+  { name: "Gautam", salary: 70000, department: "IT" },
+];
+
+let salaryHR = data.filter(emp => emp.department == "HR").map(emp => emp.salary);
+let salaryIT = data.filter(emp => emp.department == "IT").map(emp => emp.salary);
+
+let avgSalHr = salaryHR.reduce((acc,curr) => acc + curr , 0)/salaryHR.length;
+let avgSalIt = salaryIT.reduce((acc,curr) => acc + curr , 0)/salaryIT.length;
+
+if (avgSalHr > 65000) {
+  console.log([{ department: "HR", avgSal: avgSalHr }]);
+} else {
+  console.log([{ department: "IT", avgSal: avgSalIt }]);
+}
+*/
+
+/*
+let data = [
+  { name: "Manav", salary: 50000, department: "IT" },
+  { name: "Vamsi", salary: 60000, department: "HR" },
+  { name: "Aman", salary: 55000, department: "IT" },
+  { name: "Sonam", salary: 75000, department: "HR" },
+  { name: "Sonu", salary: 65000, department: "IT" },
+  { name: "Monu", salary: 80000, department: "HR" },
+  { name: "Gautam", salary: 70000, department: "IT" },
+];
+
+function getAvgSal(dept){
+  let department = data.filter(emp => emp.department == dept)
+
+  return department.reduce((acc, curr) => acc + curr.salary ,0)/department.length
+}
+
+let avgSalHr = getAvgSal("HR")
+let avgSalIt = getAvgSal("IT")
+
+if (avgSalHr > 65000) {
+  console.log([{ department: "HR", avgSal: avgSalHr }]);
+} else {
+  console.log([{ department: "IT", avgSal: avgSalIt }]);
+}
+*/
+
+// ! ===== Arrays and Strings =====
+
+//? 1. Find the maximum element in an array;
+/*
+let arr = [10,20,100,30,50,60,70,90]
+
+function maxElem(arr){
+  let max = arr[0];
+
+  for(let elem of arr){
+    if(elem > max){
+      max = elem;
+    }
+  }
+  return max
+}
+console.log(maxElem(arr))
+*/
+
+// ? 2. Count the numbers of even and odd in an array.
+/*
+let arr = [1,2,3,4,5,6,7,8,9,12,14,13,11,15,17]
+let result = {evenCount : 0 , oddCount : 0}
+
+for(let elem of arr){
+  if(elem % 2 == 0){
+    result.evenCount = result.evenCount + 1;
+  }else{
+    result.oddCount = result.oddCount + 1;
+  }
+}
+console.log(result);
+*/
+/*
+let arr = [1,2,3,4,5,6,7,8,9,12,14,13,11,15,17]
+let result = {}
+
+let oddCount = 0;
+let evenCount = 0;
+
+for(let elem of arr){
+  if(elem % 2 == 0){
+    evenCount++;
+  }else{
+    oddCount++
+  }
+}
+console.log(oddCount);
+console.log(evenCount);
+*/
+/*
+let arr = [1,2,3,4,5,6,7,8,9,12,14,13,11,15,17]
+
+let oddCount = arr.filter(elem => elem % 2 == 0).length
+let evenCount = arr.filter(elem => elem % 2 != 0).length
+
+console.log(oddCount);
+console.log(evenCount);
+*/
+
+// ? 3. Reverse the given String.
+/*
+let str = "JavaScript";
+let revStr = ""
+for(let i of str){
+  revStr = i + revStr   
+}
+console.log(revStr)
+*/
+
+/*
+let str = "JavaScript";
+let revStr = "";
+
+for(let i = 0; i<str.length; i++){
+  revStr += str[str.length - i - 1]
+}
+
+console.log(revStr);
+*/
+
+// ? 5. Print the fibonacci series upto n terms.
+/*
+let num = 8
+let num1 = 0;
+let num2 = 1;
+let temp = 0;
+
+for(let i = 0; i<num; i++){
+  console.log(num1)
+  temp = num1 + num2;
+  num1 = num2;
+  num2 =  temp;
+}
+*/
+
+// ? 6. Find the second largest element in an array.
+
+/*
+! With inbuilt method
+  let sortedArr = arr.sort((a,b) => a - b)
+  console.log(sortedArr)
+  console.log(sortedArr[sortedArr.length - 2])
+*/
+/*
+! Abhi Karna baaki hai
+let arr = [23, 78, 12, 91, 5]
+
+let max = arr[0];
+let secondLargest = arr[0]
+
+for(let elem of arr){
+  if(elem > max ){
+    max = elem;
+  }
+}
+
+for(let elem of arr){
+  if(elem < max){
+    secondLargest = elem;
+  }
+}
+console.log(secondLargest)
+*/
+
+// ? 7. Check if a string is palindrome.
+/*!
+let str = "madam"
+// let str = str1.toString()
+let isPalindrome  = true;
+
+for(let i = 0; i<str.length/2; i++){
+  if(str[i] != str[str.length - i - 1]){
+    isPalindrome  = false;
+    break;
+  }
+}
+if(isPalindrome ){
+  console.log("Palindrome String")
+}else{
+  console.log("Not a Palindrome")
+}
+*/
+
+// ? 8. Sort an array using bubble sort.
+
+// ? 9. Find sum of digit of a number.
+/*
+let num = 2346;
+let sumOfDigits = 0;
+
+while(num > 0){
+  let digit = num % 10;
+  sumOfDigits += digit;
+  num = Math.floor(num / 10) 
+}
+console.log(sumOfDigits);
+*/
+
+// ? 10. Calculate factorial of a number.
+/*
+let num = 10;
+let fact = 1;
+
+for(let i=1; i<=num; i++){
+  fact *= i;
+}
+console.log(fact)
+*/
+
+// ? 11. Merge two sorted array into one.
+/*
+let arr1 = [1,3,5]
+let arr2 = [2,4,6] 
+
+for(let i of arr2){
+  arr1[arr1.length] = i
+}
+console.log(arr1)
+*/
+/*
+let arr1 = [1,3,5]
+let arr2 = [2,4,6] 
+let mergedArray = [];
+
+for(let i of arr1){
+  mergedArray[mergedArray.length] = i;
+}
+for(let i of arr2){
+  mergedArray[mergedArray.length] = i
+}
+console.log(mergedArray)
+*/
+
+// ? 12. Count the Frequency of an element in an array.
+/*!
+let arr = [10,5,10,15,10,5]
+let frequency = {}
+
+for(let i of arr){
+  // let item = i
+  if(frequency[i] === undefined){
+    frequency[i] = 1
+  }else{
+    frequency[i]++;
+  }
+}
+
+console.log(frequency);
+*/
+
+// ? 13. Find the missing element in the range from 1 to N.
+// ? missing no = (n(n+1)/2) - sum of array
+/*
+var missingNumber = function (nums) {
+  let n = nums[nums.length - 1];
+
+  let sumOfArray = nums.reduce((acc, curr) => acc + curr);
+
+  let expectedSum = (n * (n + 1)) / 2;
+  let missingNo = expectedSum - sumOfArray;
+
+  return missingNo;
+};
+
+let nums = [10, 11, 12, 15];
+console.log(missingNumber(nums))
+*/
+/*
+let arr = [1, 2, 3, 5];
+arr.sort((a, b) => a - b);
+
+let missing;
+
+for (let i = 0; i < arr.length; i++) {
+  if (arr[i] !== i + 1) {
+    missing = i + 1;
+    break;
+  }
+}
+
+if (missing === undefined) {
+  missing = arr.length + 1;
+}
+
+console.log("Missing Number:", missing);
+*/
+
+// ? 14. Check if two strings are anagrams.
+let str1 = "geeks";
+let str2 = "kseeg";
+let charCount = {};
+
+let isAnagram = true;
+
+for (let i = 0; i < str1.length; i++) {
+  let char = str1[i];
+  if (charCount[char] === undefined) {
+    charCount[char] = 1;
+  } else {
+    charCount[char]++;
+  }
+}
+
+for (let i = 0; i < str2.length; i++) {
+  let char = str2[i];
+  if (charCount[char] == undefined) {
+    charCount[char] = -1;
+  } else {
+    charCount[char]--;
+  }
+}
+// console.log(charCount)
+
+for (let key in charCount) {
+  if (charCount[key] !== 0) {
+    isAnagram = false;
+    break;
+  }
+}
+
+if (isAnagram) {
+  console.log("Strings are Anagrams");
+} else {
+  console.log("Strings are not Anagrams");
+}
 

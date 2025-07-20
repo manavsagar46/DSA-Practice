@@ -141,7 +141,7 @@ if(num === reversedNum){
 //  *****
 //  *****
 */
-/*
+/*!
 let num = 5;
 let pattern = "";
 
@@ -162,7 +162,7 @@ console.log(pattern)
  ***
  ****
  *****
- */
+*/
 /*
 let num = 5;
 let pattern = "";
@@ -244,7 +244,7 @@ console.log(max);
 
 // 2. Reverse an array without using built-in methods
 // ? Output: [4, 3, 2, 1]
-/*
+/*!
 let arr = [1, 2, 3, 4];
 let revArray = [];
 
@@ -324,7 +324,6 @@ for(let i = 2; i<=100; i++){
       isPrime = false;
       break;
     }
-  
   }
   if(isPrime){
     console.log(i);
@@ -514,7 +513,7 @@ let pattern = "";
 
 for(let row = 1; row<=n; row++){
   for(let col=1; col<=n; col++){
-    if(row == (n +1)/2 || col == (n+1)/2) {
+    if(row == (n+1)/2 || col == (n+1)/2) {
       pattern += "*"
     }
     else{
@@ -1164,22 +1163,20 @@ for(let i = 0; i<num; i++){
   console.log(sortedArr)
   console.log(sortedArr[sortedArr.length - 2])
 */
-/*
-! Abhi Karna baaki hai
+
+/*!
+// ! WithOut Inbuilt
 let arr = [23, 78, 12, 91, 5]
 
-let max = arr[0];
-let secondLargest = arr[0]
+let largest = arr[0];
+let secondLargest = -Infinity;
 
-for(let elem of arr){
-  if(elem > max ){
-    max = elem;
-  }
-}
-
-for(let elem of arr){
-  if(elem < max){
-    secondLargest = elem;
+for(let i = 0; i<arr.length; i++){
+  if(arr[i] > largest){
+    secondLargest = largest;
+    largest = arr[i];
+  }else if(arr[i] < largest && arr[i] > secondLargest ){
+    secondLargest = arr[i]
   }
 }
 console.log(secondLargest)
@@ -1240,6 +1237,7 @@ for(let i of arr2){
 }
 console.log(arr1)
 */
+
 /*
 let arr1 = [1,3,5]
 let arr2 = [2,4,6] 
@@ -1309,6 +1307,7 @@ console.log("Missing Number:", missing);
 */
 
 // ? 14. Check if two strings are anagrams.
+/*
 let str1 = "geeks";
 let str2 = "kseeg";
 let charCount = {};
@@ -1346,4 +1345,4 @@ if (isAnagram) {
 } else {
   console.log("Strings are not Anagrams");
 }
-
+*/

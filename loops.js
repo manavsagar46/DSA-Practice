@@ -162,7 +162,7 @@ console.log(pattern)
  ***
  ****
  *****
-*/
+ */
 /*
 let num = 5;
 let pattern = "";
@@ -1346,3 +1346,806 @@ if (isAnagram) {
   console.log("Strings are not Anagrams");
 }
 */
+
+/*
+let arr = [1,0,1,0,1,1,1,0];
+let newArr = [];
+
+for(let i = 0; i<arr.length; i++){
+  if(arr[i] === 1){
+    newArr[newArr.length] = arr[i];
+  }
+}
+for(let i = 0; i<arr.length; i++){
+  if(arr[i] === 0){
+    newArr[newArr.length] = arr[i]
+  }
+}
+console.log(newArr)
+*/
+
+/*
+let str = "abcdabcea"
+let newstr = ""
+let shortnewStr = ""
+
+for(let i=0; i<str.length; i++){
+  if(str.charCodeAt(str[i]) < str.charCodeAt(str[i+1])){
+    newstr += str[i];
+  }
+}
+console.log(newstr)
+
+for(let i = newstr.length ; i < str.length; i++){
+  if (str.charCodeAt(str[i]) < str.charCodeAt(str[i])) {
+    shortnewStr += str[i];
+  }
+}
+
+if (newstr.length > shortnewStr.length) {
+  console.log(newstr)
+}else{
+  console.log(shortnewStr)
+}
+*/
+
+/*!
+// ! Galat hai Sahi krna h abhi
+let str = "abcdabcea"; // Output : abcd
+let newstr = "";
+
+for (let i = 0; i < str.length; i++) {
+  let isConsicutive = true;
+  let asciiCode = str[i].charCodeAt() + 1;
+  // console.log(asciiCode);
+  // console.log("=============");
+
+  for (let j = 0; j < str.length; j++) {
+    let asciiCode_J = str[j].charCodeAt();
+    // console.log("ascii_J : ",asciiCode_J);
+    // console.log("=============");
+
+    if (i !== j && asciiCode !== asciiCode_J) {
+      isConsicutive = false;
+      if (i !== j && str[i] == str[j]) {
+        break;
+      }
+    }
+  }
+
+  if (isConsicutive) {
+    newstr += str[i];
+  }
+}
+
+console.log(newstr);
+*/
+
+// ? Two Sum in array , return index
+/*
+let arr = [2, 7, 11, 15];
+let target = 9;
+
+function twoSum(arr, target) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] + arr[j] === target) {
+        return [i, j];
+      }
+    }
+  }
+  return []
+}
+
+console.log(twoSum(arr,target))
+*/
+
+// ? 189. Rotate Array
+/*
+Input: nums = [1,2,3,4,5,6,7], k = 3
+Output: [5,6,7,1,2,3,4]
+Explanation:
+rotate 1 steps to the right: [7,1,2,3,4,5,6]
+rotate 2 steps to the right: [6,7,1,2,3,4,5]
+rotate 3 steps to the right: [5,6,7,1,2,3,4]
+*/
+
+// let nums = [1,2,3,4,5,6,7];
+// for(let i = 0; i<nums.length; i++){
+
+// }
+
+// ? Input: nums = [0,1,0,3,12]
+// ? Output: [1,3,12,0,0]
+/*
+let arr = [0,1,0,3,12];
+let newArr = []
+
+for(let i = 0; i<arr.length; i++){
+  if(arr[i] !== 0){
+    newArr.push(arr[i])
+  }
+}
+for(let i of arr){
+  if(i === 0){
+    newArr.push(i)
+  }
+}
+console.log(newArr)
+*/
+// ? 22. check if a number is perfect square.
+// let num = 36
+
+// for(let i = 2; i<num; i++){
+//   if((i**i ) === num ){
+//     console.log("number is a perfect square..")
+//   }
+// }
+
+// for (var i=0; i < 10; i++){
+//  setTimeout(function(){
+//         console.log(i);
+//     }, 1000);
+// }
+
+// for (let i = 0; i < 3; i++) {
+//   setTimeout(() => {
+//     console.log(i);
+//   }, i * 1000);
+// }
+
+// let arr = [10, 20, 30];
+
+// arr.forEach(function (num, i) {
+//   setTimeout(() => {
+//     console.log(i, num);
+//   }, 100);
+// });
+
+// for (var i = 0; i < 3; i++) {
+//   setTimeout(() => console.log(i), i * 1000);
+// }
+
+// ? Reverse a string
+// let str = "hello";
+
+// let revStr = "";
+
+// for(let i =0; i<str.length; i++){
+//   revStr += str[str.length - i - 1]
+// }
+// console.log(revStr)
+
+// ? str plaindrome or not
+
+// let str = "madam";
+// let isPalindrome = true
+
+// for(let i = 0; i<str.length/2; i++){
+//   if(str[i] !== str[str.length - i - 1]){
+//     isPalindrome = false;
+//     break;
+//   }
+// }
+// (isPalindrome)? console.log(true) : console.log(false)
+
+// ? Q3. Count Vowels in a String
+
+// let str = "hello world";
+// let vowelCount = 0;
+
+// for(let i = 0; i<str.length; i++){
+//   if(str[i] === "a" || str[i] === "e" || str[i] === "i" || str[i] === "o" || str[i] === "u"){
+//     vowelCount++;
+//   }
+// }
+// console.log(vowelCount)
+
+// ? Q4. Remove Duplicates from a String
+/*
+let str = "programming";
+let duplicateStr = ""
+
+for (let i = 0; i < str.length; i++) {
+  let alreadyIn = false;
+  for (let j = 0; j < duplicateStr.length; j++) {
+    if(str[i] === duplicateStr[j]){
+      alreadyIn = true;
+      break;
+    }
+    
+  }
+  if(!alreadyIn){
+    duplicateStr += str[i]
+  }
+  
+  
+}
+
+console.log(duplicateStr)
+*/
+
+// let str = "programming";
+// let duplicateStr = ""
+// let seen = {}
+
+// for(let i = 0; i<str.length; i++){
+//   let char = str[i];
+//   if(!seen[char]){
+//     duplicateStr += char;
+//     seen[char] = true;
+//   }
+// }
+
+// console.log(duplicateStr)
+// console.log(seen)
+
+//? Q5. Find the Most Frequent Character in a String
+/*
+let str = "bookkeeper";
+let frequency = {}
+
+for(let i = 0; i<str.length; i++){
+  let char = str[i];
+  if(!frequency[char]){
+    frequency[char] = 1
+  }else{
+    frequency[char]++
+  }
+}
+
+let max = 0;
+let maxChar = ""
+for(let char in frequency){
+  let count = frequency[char]
+  if(count > max){
+    max = count;
+    maxChar = char;
+  }
+
+}
+console.log(maxChar)
+console.log(max)
+*/
+
+// ? Q6. Check if two strings are anagrams
+/*
+let str1 = "listen";
+let str2 = "silent";
+
+let strFrequency = {};
+
+for (let i = 0; i < str1.length; i++) {
+  let char = str1[i];
+  if (!strFrequency[char]) {
+    strFrequency[char] = 1;
+  } else {
+    strFrequency[char]++;
+  }
+}
+for (let i = 0; i < str2.length; i++) {
+  let char = str2[i];
+  if (!strFrequency[char]) {
+    strFrequency[char] = -1;
+  } else {
+    strFrequency[char] -= 1;
+  }
+}
+let isAnagram = true;
+for (let key in strFrequency) {
+  if (strFrequency[key] !== 0) {
+    isAnagram = false;
+    break;
+  }
+}
+if (isAnagram) {
+  console.log("Valid Anagram Str");
+} else {
+  console.log("Not an Anagram Str");
+}
+*/
+/*
+function isAnagram(s, t) {
+  let frequency = {};
+  
+  if (s.length !== t.length) {
+    return false;
+  }
+  
+  for (let i = 0; i < s.length; i++) {
+    let char = s[i];
+    if (!frequency[char]) {
+      frequency[char] = 1;
+    } else {
+      frequency[char]++;
+    }
+  }
+  
+  for (let i = 0; i < t.length; i++) {
+    let char = t[i];
+    if (!frequency[char]) {
+      return false;
+    } else {
+      frequency[char]--;
+    }
+  }
+  
+  for (let key in frequency) {
+    if (frequency[key] !== 0) {
+      return false;
+    }
+  }
+  return true;
+}
+let str1 = "listen";
+let str2 = "silent";
+console.log(isAnagram(str1,str2))
+*/
+
+// ? Q7. Count words in a sentence
+/*
+function wordCount(sentence) {
+  let str = sentence.trim();  
+  if(str.length === 0){
+    return 0
+  }
+  
+  let wordCount = 1;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] == " " && str[i-1] !== " ") {
+      wordCount += 1;
+    }
+  }
+  return wordCount
+}
+
+let sentence = "JavaScript is super fun!";
+console.log(wordCount(sentence));
+*/
+
+// ? Capitalize first letter of each word
+// let str = "hello world from js";
+// let result = str
+//   .split(" ")
+//   .map((word) => word[0].toUpperCase() + word.slice(1))
+//   .join(" ");
+// console.log(result);
+/*
+let str = "hello world from js this is me manav";
+let newStr = ""
+for (let i = 0; i < str.length; i++) {
+  let charCode = str.charCodeAt(i)
+
+  if(i === 0 || charCode - 1 === 32){
+   newStr += String.fromCharCode(charCode - 32);
+  }else{
+    newStr += str[i]
+  }
+
+}
+
+console.log(newStr)
+*/
+/*
+let str = "hello world from js";
+let newStr = "";
+let capitalizeNext = true;
+
+for (let i = 0; i < str.length; i++) {
+  let charCode = str.charCodeAt(i);
+
+  if (capitalizeNext && charCode >= 97 && charCode <= 122) {
+    newStr += String.fromCharCode(charCode - 32);
+    capitalizeNext = false;
+  } else {
+    newStr += str[i];
+    capitalizeNext = (str[i] === " ");
+  }
+}
+console.log(newStr);
+*/
+
+// ? Q9. Find max and min in an array
+/*
+let arr = [5, 3, 9, 1, 6];
+let max = arr[0];
+let min = arr[0];
+
+for(let i = 0; i<arr.length; i++){
+  if(arr[i] > max){
+    max = arr[i]
+  }
+  if(arr[i] < min){
+    min = arr[i]
+  }
+}
+console.log(max,min)
+*/
+
+// ? Q10. Find sum and average of elements
+/*
+let arr = [10, 20, 30, 40];
+let sum = 0;
+let count = 0
+
+for(let i of arr){
+  sum += i;
+  count++
+}
+console.log("Sum : ", sum)
+console.log("Avg : ", sum/count)
+*/
+
+// ? Q11. Reverse an array
+/*
+let arr = [1, 2, 3, 4];
+let revArray = [];
+
+for (let i = 0; i < arr.length; i++) {
+  revArray[i] = arr[arr.length - i - 1]
+}
+console.log(revArray)
+*/
+
+// ? Q12. Check if a string is a palindrome
+/*
+let str = "madam";
+isPalindrome = true;
+for (let i = 0; i < str.length/2; i++) {
+  if(str[i] != str[str.length - i - 1]){
+    isPalindrome = false;
+    break;
+  }
+}
+(isPalindrome) ? console.log("Palindrome") : console.log("Not Palindrome")
+*/
+
+// ? Q13: Count the frequency of each character in a string
+/*
+let str = "hello"
+let strFrequency = {}
+
+for(let i = 0; i<str.length; i++){
+  char = str[i];
+  if(!strFrequency[char]){
+    strFrequency[char] = 1;
+  }else{
+    strFrequency[char]++
+  }
+}
+
+console.log(strFrequency)
+*/
+
+// ? Q14: Check if Two Strings Are Anagrams
+/*
+function isAnagram(s,t){
+
+  let charFrequency ={}
+
+  if(s.length !== t.length){
+    return false;
+  }
+
+  for (let i = 0; i < s.length; i++) {
+    char = s[i];
+    if (!charFrequency[char]) {
+      charFrequency[char] = 1;
+    }else{
+      charFrequency[char]++
+    }
+  }
+
+  for (let i = 0; i < t.length; i++) {
+    char = t[i];
+    if(!charFrequency[char]){
+      return false;
+    }else{
+      charFrequency[char]--;
+    }
+  }
+
+  for(let key in charFrequency){
+    if(charFrequency[key] !== 0){
+      return false;
+    }
+  }
+  return true
+}
+
+let str1 = "listen"
+let str2 = "silent"
+console.log(isAnagram(str1,str2))
+
+*/
+
+// ? Q15: Remove all vowels from a string
+// 👉 Input: "javascript is awesome"
+// 👉 Output: "jvscrpt s wsm"
+/*
+let str = "javascript is awesome".toLowerCase();
+let newStr = ""
+
+for (let i = 0; i < str.length; i++) {
+  char = str[i];
+  if(char === "a" || char === "e" || char === "i" || char === "o" || char === "u"){
+    continue;
+  }else{
+    newStr += str[i]
+  }
+  
+}
+console.log(newStr)
+*/
+
+// ? Q16: Check if two strings are rotations of each other
+/*
+
+function isRotation(str1, str2) {
+  if (str1.length !== str2.length) {
+    return false;
+  }
+
+  let concat = str1 + str1; // abcdeabcde
+
+  for (let i = 0; i <= concat.length - str2.length; i++) {
+    let match = true;
+
+    for (let j = 0; j < str2.length; j++) {
+      if (concat[i + j] !== str2[j]) {
+        match = false;
+        break;
+      }
+    }
+
+    if (match) {
+      return true;
+    }
+  }
+  return false
+}
+
+let str1 = "abcde";
+let str2 = "deabc";
+console.log(isRotation(str1, str2));
+*/
+
+// ? Q1. First Non-Repeating Character in a String
+/*
+function firstNonRepeatingChar(str) {
+
+  if(str.length === 0){
+    return null
+  }
+
+  let frequency = {}
+
+  for (let i = 0; i < str.length; i++) {
+    char = str[i];
+    if(!frequency[char]){
+      frequency[char] = 1;
+    }else{
+      frequency[char]++
+    }
+    
+  }
+
+  for(let i = 0; i<str.length; i++){
+    char = str[i]
+    if (frequency[char] === 1) {
+      return char
+    }
+  }
+  return null
+}
+
+let str = "aabbcedff"
+console.log(firstNonRepeatingChar(str))
+*/
+
+// ? Q. Find the Longest Word in a Sentence (without using inbuilt split method)
+/*
+function LongestWord(str) {
+  let frequency = {};
+
+  let word = "";
+  for (let i = 0; i < str.length; i++) {
+    
+    if (str[i] === " ") {
+      if(!frequency[word]){
+        frequency[word] = word.length
+        word = ""
+      }
+    }else{
+      word += str[i]
+    }
+  }
+
+  if(!frequency[word]){
+    frequency[word] = word.length
+  }
+  
+  let longest = ""
+  for(i in frequency){
+    if(frequency[i] > (frequency[longest] || 0)){
+      longest = i
+    }
+  }
+  return longest
+}
+
+let str = "I love solving javascript problems";
+console.log(LongestWord(str))
+*/
+/*
+let str = "I love solving javascript problems";
+let arr = str.split(" ")
+let max = arr[0];
+
+for(let elem of arr){
+  if(elem.length > max.length){
+    max = elem
+  }
+}
+console.log(max)
+*/
+// let str = "I love solving javascript problems";
+// let arr = str.split(" ").map(elem => elem.length)
+// console.log(Math.max(...arr))
+
+/*!
+function LongestWord(str) {
+  let longest = "";
+  let current = "";
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] !== " ") {
+      current += str[i]; // add character to current word
+    } else {
+      // end of a word
+      if (current.length > longest.length) {
+        longest = current; // update longest word
+      }
+      current = ""; // reset current word
+    }
+  }
+
+  // Check last word (because it may not end with space)
+  if (current.length > longest.length) {
+    longest = current;
+  }
+
+  return longest;
+}
+
+let str = "I love solving javascript problems";
+console.log(LongestWord(str)); // Output: "javascript"
+*/
+
+// ? First Non-Repeating Character
+/*
+function firstNonRepeatingChar(str){
+
+  if(str.length === 0){
+    return null
+  }
+
+  let frequency = {}
+
+  for (let i = 0; i < str.length; i++) {
+    let char = str[i];
+    if(!frequency[char]){
+      frequency[char] = 1;
+    }else{
+      frequency[char]++
+    }
+  }
+
+  for (let i = 0; i < str.length; i++) {
+    let char = str[i]
+    if (frequency[char] === 1) {
+      return char;
+    }
+  }
+
+  return null
+}
+
+let str = "aabbccdeff"
+console.log(firstNonRepeatingChar(str))
+*/
+
+// ? Question: Remove Duplicate Characters
+/*
+function removingDulicates(str) {
+
+  if(str.length === 0){
+    return ""
+  }
+
+  let newStr = ""
+  for(let i = 0; i<str.length; i++){
+    let alreadyIn = false;
+    for (let j = 0; j < newStr.length; j++) {
+      if(str[i] === newStr[j]){
+        alreadyIn = true;
+        break;
+      }
+      
+    }
+    if(!alreadyIn){
+      newStr += str[i]
+    }
+  }
+  return newStr
+}
+
+let str = "programming"
+console.log(removingDulicates(str))
+*/
+
+// ? Q: Return the length of the longest word in the string (without using .split() or inbuilt methods).
+/*
+function LongestWordLength(str) {
+  if (str.length == 0) {
+    return 0;
+  }
+
+  let longest = "";
+  let current = "";
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] !== " ") {
+      current += str[i];
+    } else {
+      if (current.length > longest.length) {
+        longest = current;
+      }
+      current = "";
+    }
+  }
+  if (current.length > longest.length) {
+    longest = current;
+  }
+  return longest.length;
+}
+
+let str = "I love solving javascript problems";
+console.log(LongestWordLength(str));
+*/
+
+// ? Q2: Reverse Each Word in a Sentence (without using inbuilt split, reverse, or join)
+// ! o/p : "I evol tpircsavaj"
+
+function reverseEachWord(str) {
+  if (str.length === 0) {
+    return 0;
+  }
+
+  let word = "";
+  let revStr = "";
+
+  for (let i = 0; i <= str.length; i++) {
+    if (str[i] === " " || i === str.length) {
+
+      for (let j = word.length - 1; j >= 0; j--) {
+        revStr += word[j];
+      }
+
+      if (i !== str.length) {
+        revStr += " ";
+      }
+
+      word = "";
+      
+    } else {
+      word += str[i];
+    }
+  }
+
+  return revStr;
+}
+
+let str = "I love javascript";
+
+console.log(reverseEachWord(str));

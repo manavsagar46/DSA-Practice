@@ -19,6 +19,7 @@ class Queue {
   }
 
   front() {
+    if (this.isEmpty()) return "Queue is empty";
     return this.items[0];
   }
 
@@ -42,12 +43,12 @@ myQueue.enqueue(25);
 myQueue.enqueue(78);
 myQueue.enqueue(66);
 
-console.log("Is Queue Empty : ",myQueue.isEmpty());
+console.log("Is Queue Empty : ", myQueue.isEmpty());
 
-console.log(myQueue.dequeue())
+console.log(myQueue.dequeue());
 
-console.log("Front Element of Queue is : ", myQueue.front())
+console.log("Front Element of Queue is : ", myQueue.front());
 
-console.log("Size of Queue is : ", myQueue.size())
+console.log("Size of Queue is : ", myQueue.size());
 
 console.log("Queue : ", myQueue.printQueue());

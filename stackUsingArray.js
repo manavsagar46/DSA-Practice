@@ -1,4 +1,5 @@
 // ? Q27. Stack implemantation using an array.
+// ! LIFO
 
 class Stack {
   constructor() {

@@ -2116,7 +2116,7 @@ console.log(LongestWordLength(str));
 
 // ? Q2: Reverse Each Word in a Sentence (without using inbuilt split, reverse, or join)
 // ! o/p : "I evol tpircsavaj"
-
+/*
 function reverseEachWord(str) {
   if (str.length === 0) {
     return 0;
@@ -2149,3 +2149,400 @@ function reverseEachWord(str) {
 let str = "I love javascript";
 
 console.log(reverseEachWord(str));
+*/
+
+// ? Remove duplicates from string
+/*
+var removeDuplicateLetters = function (s) {
+  if (s.length === 0) return 0;
+
+  let t = "";
+
+  for (let i = 0; i < s.length; i++) {
+    let alreadyIn = false;
+    for (let j = 0; j < t.length; j++) {
+      if (s[i] === t[j]) {
+        alreadyIn = true;
+        break;
+      }
+    }
+
+    if (!alreadyIn) {
+      t += s[i];
+    }
+  }
+
+  return t;
+};
+console.log(removeDuplicateLetters("cbacdcbc"));
+*/
+
+// ? Q. First non-repeating character of given string
+/*
+Input: s = "racecar"
+Output: 'e'
+Explanation: 'e' is the only character in the string which does not repeat.
+
+Input: "aabbccc"
+Output: '$'
+Explanation: All the characters in the given string are repeating.
+*/
+/*
+function firstNonRepeatingChar(s) {
+  if (s.length === 0) {
+    return 0;
+  }
+
+  let frequency = {};
+
+  for (let i = 0; i < s.length; i++) {
+    let char = s[i];
+    if (!frequency[char]) {
+      frequency[char] = 1;
+    } else {
+      frequency[char]++;
+    }
+  }
+  console.log(frequency);
+  
+  for (let i = 0; i < s.length; i++) {
+    let char = s[i];
+    if (frequency[char] === 1) {
+      return i;
+    }
+  }
+  return -1
+}
+
+let s = "racecar";
+console.log(firstNonRepeatingChar(s));
+*/
+
+// ? Q. 151. Reverse Words in a String
+/*
+Example 1:
+Input: s = "the sky is blue"
+Output: "blue is sky the"
+
+Example 2:
+Input: s = "  hello world  "
+Output: "world hello"
+Explanation: Your reversed string should not contain leading or trailing spaces.
+
+Example 3:
+Input: s = "a good   example"
+Output: "example good a"
+Explanation: You need to reduce multiple spaces between two words to a single space in the reversed string.
+*/
+/*!
+function reverseStringWords(s) {
+  if (s.length === 0) {
+    return 0;
+  }
+
+  let revstr = "";
+  let word = "";
+
+  for (let i = s.length - 1; i >= 0; i--) {
+    if (s[i] !== " ") {
+      word += s[i];
+      // console.log(word)
+    } else {
+      if (word.length > 0) {
+        for (let j = word.length - 1; j >= 0; j--) {
+          revstr += word[j];
+        }
+        revstr += " ";
+        word = "";
+      }
+    }
+  }
+  // Handle the first word (at start of string)
+  if (word.length > 0) {
+    for (let j = word.length - 1; j >= 0; j--) {
+      revstr += word[j];
+    }
+  }
+  
+
+  return revstr.trim();
+}
+
+let s = "a good   example";
+console.log(reverseStringWords(s));
+*/
+
+// ? Q17. Check if a no. is an armstrong number ?
+
+/*
+Input: n = 153
+Output: true
+Explanation: 153 is an Armstrong number, 1*1*1 + 5*5*5 + 3*3*3 = 153
+
+Input: n = 9474
+Output: true
+Explanation: 94 + 44 + 74 + 44 = 6561 + 256 + 2401 + 256 = 9474
+
+Input: n = 123
+Output: false
+Explanation: 1³ + 2³ + 3³ = 1 + 8 + 27 = 36
+*/
+/*
+function isArmstrong(n) {
+  let original = n;
+  let nCopy = n;
+  let count = 0;
+  while (nCopy > 0) {
+    nCopy = Math.floor(nCopy / 10);
+    count++;
+  }
+
+  let num = 0;
+
+  while (n > 0) {
+    let digit = n % 10;
+    num += digit ** count;
+    n = Math.floor(n / 10);
+  }
+  if (original === num) {
+   return true
+  }else{
+    return false
+  }
+
+}
+
+let n = 1634;
+console.log(isArmstrong(n));
+*/
+
+// ?! Q18. Rotate an array to the right by K Steps.
+// ! NOT DONE YET.....
+/*
+Example 1:
+Input: nums = [1,2,3,4,5,6,7], k = 3
+Output: [5,6,7,1,2,3,4]
+Explanation:
+rotate 1 steps to the right: [7,1,2,3,4,5,6]
+rotate 2 steps to the right: [6,7,1,2,3,4,5]
+rotate 3 steps to the right: [5,6,7,1,2,3,4]
+
+Example 2:
+Input: nums = [-1,-100,3,99], k = 2
+Output: [3,99,-1,-100]
+Explanation: 
+rotate 1 steps to the right: [99,-1,-100,3]
+rotate 2 steps to the right: [3,99,-1,-100]
+*/
+/*
+var rotate = function (nums, k) {
+  let left = 0;
+  let right = nums.length - 1;
+
+  while(left < right){
+    let temp = nums[left]
+    nums[left] = nums[right]
+    nums[right] = temp;
+
+    left++;
+    right--;
+  }
+
+  
+
+  return nums;
+};
+
+let nums = [1, 2, 3, 4, 5, 6, 7];
+let k = 3;
+console.log(rotate(nums, k));
+*/
+
+// ? Q 20. Move all zeros to the end of an array.
+
+/*
+Example 1:
+Input: nums = [0,1,0,3,12]
+Output: [1,3,12,0,0]
+
+Example 2:
+Input: nums = [0]
+Output: [0]
+*/
+/*
+var moveZeroes = function(nums) {
+  let arr = [];
+
+  for(let i of nums){
+    if(i !== 0){
+      arr.push(i)
+    }
+  }
+
+  for(let i of nums){
+    if(i === 0){
+      arr.push(i)
+    }
+  }
+  return arr
+};
+
+let nums = [0,1,0,3,12];
+console.log(moveZeroes(nums))
+*/
+/*
+var moveZeroes = function (nums) {
+  let count = 0;
+
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== 0) {
+      nums[count++] = nums[i];
+    }
+  }
+
+  while (count < nums.length) {
+    nums[count++] = 0
+  }
+
+  return nums;
+};
+
+let nums = [0, 1, 0, 3, 12];
+console.log(moveZeroes(nums));
+*/
+
+// ? Q 23. Count vowels and consonanats in a string.
+/*
+Example 1
+Input: str = "geeks for geeks"
+Output:
+Vowels: 5
+Consonants: 8
+
+Example 2
+Input: str = "abcdefghijklmnopqrstuvwxyz"
+Output:
+Vowels: 5
+Consonants: 21
+*/
+/*
+function vowelsAndConsonantsCount(s){
+  let vowelCount = 0;
+  let consonantsCount = 0;
+
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === "a" || s[i] === "e" || s[i] === "i" || s[i] === "o" || s[i] === "u") {
+      vowelCount++;
+    } else if(s[i] === " "){
+      continue;
+    }else{
+      consonantsCount++
+    }
+    
+  }
+  return `Vowel Count : ${vowelCount} and Consonants Count : ${consonantsCount}`
+}
+let s = "abcdefghijklmnopqrstuvwxyz"
+console.log(vowelsAndConsonantsCount(s))
+*/
+/*
+function vowelsAndConsonantsCount(s) {
+  let vowelCount = 0;
+  let consonantsCount = 0;
+
+  for (let i = 0; i < s.length; i++) {
+    let ascii = s.charCodeAt(i);
+
+    if (
+      s[i] === "a" ||
+      s[i] === "e" ||
+      s[i] === "i" ||
+      s[i] === "o" ||
+      s[i] === "u" ||
+      s[i] === "A" ||
+      s[i] === "E" ||
+      s[i] === "I" ||
+      s[i] === "O" ||
+      s[i] === "U"
+    ) {
+      vowelCount++;
+    } else if (ascii > 47 && ascii < 58) {
+      continue;
+    } else if (ascii === 32) {
+      continue;
+    } else {
+      consonantsCount++;
+    }
+  }
+  return `Vowel Count : ${vowelCount} and Consonants Count : ${consonantsCount}`;
+}
+let s = "abcdefghijkl  mnop   qrstu    v12345wxyz";
+console.log(vowelsAndConsonantsCount(s));
+*/
+/*!
+// ? Most Prefered one.
+function vowelsAndConsonantsCount(s) {
+  let vowelCount = 0;
+  let consonantsCount = 0;
+
+  for (let i = 0; i < s.length; i++) {
+    let ch = s[i];
+    let ascii = s.charCodeAt(i);
+
+    // Check if character is a letter (A-Z or a-z)
+    if ((ascii >= 65 && ascii <= 90) || (ascii >= 97 && ascii <= 122)) {
+      // Check if it's a vowel
+      if (
+        ch === "a" ||
+        ch === "e" ||
+        ch === "i" ||
+        ch === "o" ||
+        ch === "u" ||
+        ch === "A" ||
+        ch === "E" ||
+        ch === "I" ||
+        ch === "O" ||
+        ch === "U"
+      ) {
+        vowelCount++;
+      } else {
+        consonantsCount++;
+      }
+    }
+    // Ignore digits, spaces, and symbols
+  }
+
+  return `Vowel Count: ${vowelCount} and Consonant Count: ${consonantsCount}`;
+}
+
+let s = "11abcdefghijkl  mnop   qrstu    v12345wxyz";
+console.log(vowelsAndConsonantsCount(s));
+*/
+
+// ? Q22. Check if a no. is a perfect square.
+/*
+Input  : n = 36
+Output : Yes
+
+Input : n = 2500
+Output : Yes
+Explanation: 2500 is a perfect square of 50
+
+Input  : n = 8
+Output : No
+*/
+/*
+function isPerfectSquare(n){
+  if(n < 0) return false;
+
+  for (let i = 1; i*i <= n; i++) {
+    if(i**i === n){
+      return true
+    }
+  }
+  return false
+}
+let n = 10
+console.log(isPerfectSquare(n))
+*/
+

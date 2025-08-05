@@ -29,11 +29,8 @@ class Stack {
   }
 
   isEmpty() {
-    if (this.items.length === 0) {
-      return true;
-    } else {
-      return false;
-    }
+    return this.items.length === 0
+     
   }
 
   printStack(){

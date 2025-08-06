@@ -2559,7 +2559,7 @@ Example 2:
 Input: nums = [2,2,1,1,1,2,2]
 Output: 2
 */
-
+/*
 var majorityElement = function (nums) {
   let frequency = {};
   majorityCount = Math.floor(nums.length / 2);
@@ -2582,3 +2582,357 @@ var majorityElement = function (nums) {
 };
 let nums = [2, 2, 1, 1, 1, 2, 2];
 console.log(majorityElement(nums));
+*/
+
+// ? left rotation of an array by 1 element
+/*
+function leftRotationArray(arr){
+
+  let copy = arr[0]
+  for(let i = 0; i < arr.length - 1; i++){
+    arr[i] = arr[i + 1];
+  }
+  arr[arr.length - 1] = copy
+  
+  return arr
+}
+
+let arr = [1,2,3,4,5]
+console.log(leftRotationArray(arr))
+*/
+
+// ? Right rotation of an array by 1 element
+/*
+function rightRotationArray(arr){
+
+  let copy = arr[arr.length - 1]
+  for(let i = arr.length - 1; i > 0; i--){
+    arr[i] = arr[i - 1]
+  }
+  arr[0] = copy
+  return arr
+}
+
+let arr = [1,2,3,4,5]
+console.log(rightRotationArray(arr))
+*/
+
+// ? Left rotation of an array by k element
+/*
+function leftRotationArray(arr) {
+  let k = 9
+  k = k % arr.length;
+  for (let j = 0; j < k; j++) {
+    let copy = arr[0];
+    for (let i = 0; i < arr.length - 1; i++) {
+      arr[i] = arr[i + 1];
+    }
+    arr[arr.length - 1] = copy;
+  }
+  return arr;
+}
+
+let arr = [1, 2, 3, 4, 5];
+console.log(leftRotationArray(arr));
+*/
+
+// ? Right rotation of an array by k element
+/*
+function rightRotationArray(arr) {
+  let k = 9;
+  k = k % arr.length;
+  for (let j = 0; j < k; j++) {
+    let copy = arr[arr.length - 1];
+    for (let i = arr.length - 1; i > 0; i--) {
+      arr[i] = arr[i - 1];
+    }
+    arr[0] = copy;
+  }
+
+  return arr;
+}
+
+let arr = [1, 2, 3, 4, 5];
+console.log(rightRotationArray(arr));
+*/
+
+// ? Left rotation of an array by k element
+// Space complexity : O(n)
+/*
+function leftRotationArray(arr) {
+  let temp = [];
+  let k = 3;
+  k = k % arr.length;
+
+  for (let i = 0; i < arr.length; i++) {
+    temp[i] = arr[(i + k) % arr.length];
+  }
+  return temp;
+}
+
+let arr = [1, 2, 3, 4, 5];
+console.log(leftRotationArray(arr));
+*/
+
+// ? Right rotation of an array by k element
+// Space complexity : O(n)
+
+/*
+function rightRotationArray(arr) {
+  let k = 2;
+  k = k % arr.length;
+  let temp = [];
+  for (let i = 0; i < arr.length; i++) {
+    temp[(i + k) % arr.length] = arr[i];
+  }
+
+  return temp;
+}
+
+let arr = [1, 2, 3, 4, 5];
+console.log(rightRotationArray(arr));
+*/
+
+// ? Q. Second largest element in an array.
+/*
+function secondLargest(arr){
+  if(arr.length < 2) return null;
+
+  let largest = arr[0];
+  let secondLargest = -Infinity;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > largest) {
+      secondLargest = largest;
+      largest = arr[i];
+    }else if(arr[i] > secondLargest  && arr[i] < largest){
+      secondLargest = arr[i]
+    }
+    
+  }
+  return secondLargest === -Infinity ? null : secondLargest;
+}
+
+let arr = [40,40,40,40]
+console.log(secondLargest(arr))
+*/
+
+// ? Q. Reverse an array without using extra space
+// ! Here we will use Two pointers approch.
+// ! One pointer will be at starting of an array that will increment by 1 and
+// ! One pointer will be at ending of an array that will decrement by 1
+
+/*
+function reverseArray(arr) {
+  if (arr.length < 2) return arr;
+
+  let i = 0;
+  let j = arr.length - 1;
+
+  while (i < j) {
+    let temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+    i++;
+    j--;
+  }
+  return arr;
+}
+
+let arr = [10, 20, 30, 40, 50];
+console.log(reverseArray(arr));
+*/
+
+// ? Q. move zeroes and one's one side of an array
+/*
+function moveZeroes(arr) {
+  let j = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === 0) {
+      let temp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = temp;
+      j++
+    }
+  }
+  return arr;
+}
+
+let arr = [0, 1, 0, 1, 0, 1, 0, 1];
+console.log(moveZeroes(arr));
+*/
+
+// ? Q 20. Move all zeros to the end of an array.
+
+/*
+Example 1:
+Input: nums = [0,1,0,3,12]
+Output: [1,3,12,0,0]
+
+Example 2:
+Input: nums = [0]
+Output: [0]
+*/
+/*
+function moveZeroes(arr){
+
+  let j = 0;
+  for(let i = 0; i<arr.length; i++){
+    if (arr[i] !== 0) {
+      let temp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = temp;
+      j++
+    }
+  }  
+
+  return arr
+}
+
+let nums = [0,1,0,3,12];
+console.log(moveZeroes(nums))
+*/
+
+// ? Q. move all the negatives to the left and positives to the right of an array.
+/*
+Input: [-12, 11, -13, -5, 6, -7, 5, -3, -6]
+Output: [-12, -13, -5, -7, -3, -6, 11, 6, 5]
+*/
+/*
+function moveNegativesAndPositives(arr) {
+  let j = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < 0) {
+      let temp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = temp;
+      j++;
+    }
+  }
+  return arr;
+}
+
+let arr = [4, 5, -1, -2, 8, 2];
+console.log(moveNegativesAndPositives(arr));
+*/
+
+// ? Left rotation of an array by k element
+
+/*
+function leftRotationArray(arr, k) {
+  k = k % arr.length;
+
+  reverse(arr, 0, k - 1);
+  reverse(arr, k, arr.length - 1);
+  reverse(arr, 0, arr.length - 1);
+
+  return arr;
+}
+
+let arr = [1, 2, 3, 4, 5];
+let k = 3;
+console.log(leftRotationArray(arr,k));
+
+function reverse(arr, i, j) {
+  while (i < j) {
+    let temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+    i++;
+    j--;
+  }
+}
+*/
+
+// ? Right rotation of an array by k element
+
+/*
+function rightRotationArray(nums,k) {
+  k = k % nums.length;
+
+  reverse(nums, 0, nums.length - 1);
+  reverse(nums, 0, k-1)
+  reverse(nums, k, nums.length - 1);
+
+  return nums;
+}
+
+let nums = [1,2,3,4,5];
+let k = 3
+console.log(rightRotationArray(nums,k));
+
+function reverse(nums,i,j) {
+  while (i < j) {
+    let temp = nums[i];
+    nums[i] = nums[j];
+    nums[j] = temp;
+    i++;
+    j--;
+  }
+}
+*/
+
+// ? Q26. Remove Duplicates from Sorted Array
+/*
+Example 1:
+Input: nums = [1,1,2]
+Output: 2, nums = [1,2,_]
+Explanation: Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively.
+It does not matter what you leave beyond the returned k (hence they are underscores).
+
+Example 2:
+Input: nums = [0,0,1,1,1,2,2,3,3,4]
+Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
+Explanation: Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4 respectively.
+It does not matter what you leave beyond the returned k (hence they are underscores).
+*/
+/*
+var removeDuplicates = function (nums) {
+  if (nums.length < 2) return 1;
+
+  let j = 1;
+  for (let i = 0; i < nums.length - 1; i++) {
+    if (nums[i] != nums[i + 1]) {
+      nums[j] = nums[i + 1];
+      j++;
+    }
+  }
+  return j;
+};
+
+let nums = [0,0,1,1,1,2,2,3,3,4];
+console.log(removeDuplicates(nums))
+*/
+
+// ? Q121. Best Time to Buy and Sell Stock
+/*
+Example 1:
+Input: prices = [7,1,5,3,6,4]
+Output: 5
+Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
+
+Example 2:
+Input: prices = [7,6,4,3,1]
+Output: 0
+Explanation: In this case, no transactions are done and the max profit = 0.
+*/
+
+var maxProfit = function (prices) {
+  let maxProfit = 0;
+  let min = prices[0];
+
+  for (let i = 0; i < prices.length; i++) {
+    if (prices[i] < min) {
+      min = prices[i];
+    }
+    let profit = prices[i] - min;
+    if (profit > maxProfit) {
+      maxProfit = profit;
+    }
+  }
+  return maxProfit;
+};
+
+let prices = [7, 1, 5, 3, 6, 4];
+console.log(maxProfit(prices));

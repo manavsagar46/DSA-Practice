@@ -2917,7 +2917,7 @@ Input: prices = [7,6,4,3,1]
 Output: 0
 Explanation: In this case, no transactions are done and the max profit = 0.
 */
-
+/*
 var maxProfit = function (prices) {
   let maxProfit = 0;
   let min = prices[0];
@@ -2936,3 +2936,181 @@ var maxProfit = function (prices) {
 
 let prices = [7, 1, 5, 3, 6, 4];
 console.log(maxProfit(prices));
+*/
+
+// ? Q. Simple Merge sorted array.
+/*
+let arr1 = [2, 4, 6, 8, 9];
+let arr2 = [1, 3, 5, 7, 8, 9];
+let temp = [];
+
+let i = 0;
+let j = 0;
+let k = 0;
+while (i  < arr1.length && j < arr2.length) {
+  if (arr1[i] < arr2[j]) {
+    temp[k] = arr1[i];
+    i++;
+  } else {
+    temp[k] = arr2[j];
+    j++;
+  }
+  k++;
+}
+
+while (i < arr1.length) {
+  temp[k] = arr1[i];
+  i++;
+  k++;
+}
+while (j < arr2.length) {
+  temp[k] = arr2[j];
+  j++;
+  k++;
+}
+console.log(temp);
+*/
+
+// ? Q88. Leetcode Merge Sorted Array
+/*
+You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, representing the number of elements in nums1 and nums2 respectively.
+Merge nums1 and nums2 into a single array sorted in non-decreasing order.
+The final sorted array should not be returned by the function, but instead be stored inside the array nums1. To accommodate this, nums1 has a length of m + n, where the first m elements denote the elements that should be merged, and the last n elements are set to 0 and should be ignored. nums2 has a length of n.
+
+Example 1:
+Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+Output: [1,2,2,3,5,6]
+Explanation: The arrays we are merging are [1,2,3] and [2,5,6].
+The result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1.
+
+Example 2:
+Input: nums1 = [1], m = 1, nums2 = [], n = 0
+Output: [1]
+Explanation: The arrays we are merging are [1] and [].
+The result of the merge is [1].
+*/
+/*
+var merge = function (nums1, m, nums2, n) {
+  let i = m - 1;
+  let j = n - 1;
+  let idx = m + n - 1;
+
+  while (i >= 0 && j >= 0) {
+    if (nums2[j] > nums1[i]) {
+      nums1[idx] = nums2[j];
+      idx--;
+      j--;
+    } else {
+      nums1[idx] = nums1[i];
+      idx--;
+      i--;
+    }
+  }
+
+  while (j >= 0) {
+    nums1[idx] = nums2[j];
+    j--;
+    idx--;
+  }
+
+  return nums1;
+};
+
+let nums1 = [1, 2, 3, 0, 0, 0, 0, 0];
+let nums2 = [2, 5, 6, 7, 8];
+let m = 3;
+let n = 5;
+console.log(merge(nums1, m, nums2, n));
+*/
+
+// ? Q75. Sort Colors
+/*
+Example 1:
+Input: nums = [2,0,2,1,1,0]
+Output: [0,0,1,1,2,2]
+
+Example 2:
+Input: nums = [2,0,1]
+Output: [0,1,2]
+*/
+/*
+var sortColors = function(nums) {
+  let i = 0;
+  let j = 0; 
+  let k = nums.length - 1;
+
+  while(i <= k){
+    if (nums[i] === 0) {
+      [nums[j],nums[i]] = [nums[i],nums[j]];
+      i++;
+      j++;
+    }else if(nums[i] === 2){
+      [nums[i],nums[k]] = [nums[k],nums[i]];
+      k--;
+    }else{
+      i++
+    }
+  }
+return nums
+
+};
+let nums = [2,0,2,1,1,0]
+console.log(sortColors(nums))
+*/
+
+// ? Q53. Maximum Subarray
+/*
+Example 1:
+Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
+Output: 6
+Explanation: The subarray [4,-1,2,1] has the largest sum 6.
+
+Example 2:
+Input: nums = [1]
+Output: 1
+Explanation: The subarray [1] has the largest sum 1.
+*/
+/*
+var maxSubArray = function(nums) {
+  let maxSum = -Infinity;
+  let currentSum = 0;
+
+  for (let i = 0; i < nums.length; i++) {
+    currentSum += nums[i];
+    maxSum = Math.max(currentSum,maxSum)
+    if(currentSum < 0){
+      currentSum = 0;
+    }
+  }
+  return maxSum
+};
+let nums = [-2,1,-3,4,-1,2,1,-5,4]
+console.log(maxSubArray(nums))
+*/
+
+// ? Q. Reverse integer LeetCode:
+
+var reverse = function (x) {
+  let rev = 0;
+  let sign = x < 0 ? -1 : 1; // store the sign
+  let xCopy = Math.abs(x); // work with absolute value
+
+  while (xCopy > 0) {
+    let digit = xCopy % 10;
+
+    // Overflow check before pushing new digit
+    if (
+      rev > Math.floor(2147483647 / 10) ||
+      (rev === Math.floor(2147483647 / 10) && digit > 7)
+    ) {
+      return 0; // overflow
+    }
+
+    rev = rev * 10 + digit;
+    xCopy = Math.floor(xCopy / 10);
+  }
+
+  return rev * sign; // restore sign
+};
+
+console.log(reverse(-123));

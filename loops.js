@@ -3089,7 +3089,7 @@ console.log(maxSubArray(nums))
 */
 
 // ? Q. Reverse integer LeetCode:
-
+/*
 var reverse = function (x) {
   let rev = 0;
   let sign = x < 0 ? -1 : 1; // store the sign
@@ -3114,3 +3114,22 @@ var reverse = function (x) {
 };
 
 console.log(reverse(-123));
+*/
+
+// ? Q. Two Sum Optimized Approch
+
+var twoSum = function (nums, target) {
+  let map = {};
+  for (let i = 0; i < nums.length; i++) {
+    map[nums[i]] = i;
+  }
+
+  for (let i = 0; i < nums.length; i++) {
+    let pairToFind = target - nums[i];
+    if (map[pairToFind] && map[pairToFind] !== i) {
+      return [i, map[pairToFind]];
+    }
+  }
+
+  return [];
+};

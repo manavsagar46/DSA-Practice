@@ -3419,3 +3419,18 @@ var containsDuplicate = function (nums) {
 let nums = [1,2,3,1];
 console.log(containsDuplicate(nums));
 */
+
+// ? Other Approch
+var containsDuplicate = function (nums) {
+  let mySet = new Set(nums);
+  console.log(mySet.size)
+
+  if(mySet.size === nums.length){
+    return false;
+  }else{
+    return true;
+  }
+};
+
+let nums = [1,2,3,1];
+console.log(containsDuplicate(nums));

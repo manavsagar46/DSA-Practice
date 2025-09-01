@@ -3438,9 +3438,28 @@ console.log(containsDuplicate(nums));
 */
 
 // ? 509. Fibonacci Number
-
+/*
 var fib = function(n) {
     if (n === 0) return 0;
     if (n === 1) return 1;
     return fib(n - 1) + fib(n - 2);
+};
+*/
+// ? 66 PLus One:  
+var plusOne = function(digits) {
+    
+    let newArr = [...digits];
+
+    for(let i = newArr.length - 1; i >= 0; i--){
+        if(newArr[i] < 9){
+            newArr[i]++;
+            return newArr;
+        }
+
+        newArr[i] = 0;
+    }
+
+    newArr.unshift(1);
+
+   return newArr
 };

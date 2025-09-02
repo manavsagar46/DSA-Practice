@@ -3462,7 +3462,7 @@ Explanation: The array represents the integer 9.
 Incrementing by one gives 9 + 1 = 10.
 Thus, the result should be [1,0].
 */
-
+/*
 var plusOne = function (digits) {
   let newArr = [...digits];
 
@@ -3478,3 +3478,27 @@ var plusOne = function (digits) {
 };
 let digits = [4, 3, 2, 1];
 console.log(plusOne(digits));
+*/
+
+// ? 35. Search Insert Position
+
+var searchInsert = function (nums, target) {
+
+    let left = 0;
+    let right = nums.length - 1;
+
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+
+        if (nums[mid] === target) {
+            return mid; 
+        } else if (nums[mid] < target) {
+            left = mid + 1; 
+        } else {
+            right = mid - 1; 
+        }
+    }
+
+    return left;
+
+};

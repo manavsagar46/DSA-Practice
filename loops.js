@@ -3481,24 +3481,48 @@ console.log(plusOne(digits));
 */
 
 // ? 35. Search Insert Position
-
+/*
 var searchInsert = function (nums, target) {
+  let left = 0;
+  let right = nums.length - 1;
 
-    let left = 0;
-    let right = nums.length - 1;
+  while (left <= right) {
+    let mid = Math.floor((left + right) / 2);
 
-    while (left <= right) {
-        let mid = Math.floor((left + right) / 2);
-
-        if (nums[mid] === target) {
-            return mid; 
-        } else if (nums[mid] < target) {
-            left = mid + 1; 
-        } else {
-            right = mid - 1; 
-        }
+    if (nums[mid] === target) {
+      return mid;
+    } else if (nums[mid] < target) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
     }
+  }
 
-    return left;
+  return left;
+};
+*/
 
+/*
+? 58. Length of Last Word
+Given a string s consisting of words and spaces,
+return the length of the last word in the string.
+A word is a maximal substring consisting of non-space characters only.
+
+Example 1:
+Input: s = "Hello World"
+Output: 5
+Explanation: The last word is "World" with length 5.
+*/
+
+var lengthOfLastWord = function (s) {
+  let n = s.length - 1;
+  while (n >= 0 && s[n] === " ") n--;
+
+  let count = 0;
+  while (n >= 0 && s[n] !== " ") {
+    count++;
+    n--;
+  }
+
+  return count;
 };

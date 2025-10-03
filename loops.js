@@ -3530,7 +3530,7 @@ var lengthOfLastWord = function (s) {
 */
 
 // ? 575. Distribute Candies
-
+/*
 var distributeCandies = function(candies) {
   const uniqueCandiesNo = new Set(candies).size;
   const half = candies.length / 2;
@@ -3538,3 +3538,35 @@ var distributeCandies = function(candies) {
 };
 
 console.log(distributeCandies([1,1,2,2,3,3]))
+*/
+
+// ? 42. Trapping Rain Water
+
+var trap = function(height) {
+  let left = new Array(height.length);
+  let right = new Array(height.length);
+
+  let maxLeft = height[0] , maxRight = height[height.length -1];
+
+  left[0] = maxLeft, right[right.length - 1] = maxRight;
+
+  for(let i = 1; i < height.length; i++){
+    maxLeft = Math.max(height[i], maxLeft);
+    left[i] = maxLeft;
+  }
+
+  for(let i = height.length -1; i >= 0; i--){
+    maxRight = Math.max(height[i], maxRight);
+    right[i] = maxRight;
+  }
+
+  let res = 0;
+  for(let i = 0; i < height.length; i++){
+    res += Math.min(right[i], left[i]) - height[i];
+  }
+
+  return res;
+};
+
+console.log(trap([0,1,0,2,1,0,1,3,2,1,2,1]))
+

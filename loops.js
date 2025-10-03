@@ -3514,6 +3514,7 @@ Output: 5
 Explanation: The last word is "World" with length 5.
 */
 
+/*
 var lengthOfLastWord = function (s) {
   let n = s.length - 1;
   while (n >= 0 && s[n] === " ") n--;
@@ -3526,3 +3527,14 @@ var lengthOfLastWord = function (s) {
 
   return count;
 };
+*/
+
+// ? 575. Distribute Candies
+
+var distributeCandies = function(candies) {
+  const uniqueCandiesNo = new Set(candies).size;
+  const half = candies.length / 2;
+  return Math.min(uniqueCandiesNo,half);
+};
+
+console.log(distributeCandies([1,1,2,2,3,3]))
